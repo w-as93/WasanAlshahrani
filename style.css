@@ -1,0 +1,981 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+:root {
+/* ===== COLOR ===== */
+    --primary-color: #06363d;
+    --secondary-color: #0d6f73;
+    --text-color: #e0ede9;
+    --button-color: #085558;
+    --prime-text-color: #84babf;
+
+/* ===== FONT ===== */
+    --main-font: "Roboto", serif;
+    --secondary-font: "Playwrite AU SA", serif; 
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* From Uiverse.io by Subaashbala */ 
+.loader {
+    font-size: 2em;
+    font-weight: 900;
+    font-family: "Roboto", serif;
+    color: var(--text-color);
+  }
+  .loader > * {
+    color: var(--text-color);
+  }
+  .loader span {
+    display: inline-flex;
+  }
+  .loader span:nth-child(2) {
+    letter-spacing: -1em;
+    overflow: hidden;
+    animation: reveal 1500ms cubic-bezier(0.645, 0.045, 0.355, 1) infinite
+      alternate;
+  }
+  @keyframes reveal {
+    0%,
+    100% {
+      opacity: 0.5;
+      letter-spacing: -1em;
+    }
+    50% {
+      opacity: 1;
+      letter-spacing: 0em;
+    }
+  }
+  
+body.loading {
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--primary-color);
+    width: 100%;
+    position: fixed; /* لجعل الهيدر ثابت */
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 150px;
+}
+
+.logo {
+    font-family: "Roboto", serif;
+    text-decoration: none;
+    color: var(--text-color);
+    text-transform: uppercase; /* لجعل الحروف كبيتل */
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.nav_link{
+    font-family: "Roboto", serif;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-left: 30px;
+    position: relative;
+    transition: all 0.4s;
+}
+
+.nav_link:hover,
+.nav_link:focus {
+    color: var(--text-color);
+}
+
+.nav_link::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+}
+
+.nav_link:hover::after,
+.nav_link:focus::after {
+    opacity: 1;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--primary-color);
+    overflow: hidden;
+}
+
+.main .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+}
+
+.main .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+.main .wave.wave2{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+.main .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+.main .wave.wave4{
+    animation: animate2 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.name {
+    font-family: "Playwrite AU SA", serif;
+    color: var(--text-color);
+    font-size: 45px;
+}
+
+.my-job {
+    font-family: "Roboto", serif;
+    font-size: 25px;
+    color: var(--text-color);
+    margin-bottom: 18px;
+}
+
+.my-job span {
+    position: relative;
+}
+
+.my-job span::before {
+    content: 'Developer';
+    color: var(--prime-text-color);
+    animation: words 20s infinite;
+}
+
+.my-job span::after {
+    content: '';
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: var(--primary-color);
+    border-left: 2px solid var(--prime-text-color);
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #00a8cc00;
+    }
+}
+
+@keyframes words {
+    0%,20% {
+        content: 'Student';
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}
+
+.about-me {
+    font-family: "Roboto", serif;
+    text-align: center;
+    color: var(--text-color);
+    width: 365px;
+    line-height: 1.3;
+    margin-bottom: 70px;
+}
+
+.download-btn {
+    font-family: "Roboto", serif;
+    background-color: var(--button-color);
+    height: 50px;
+    width: 230px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.download-btn .download-content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-content i,
+.download-content .download-txt {
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.download-txt {
+    margin-left: 8px;
+}
+
+.download-btn:hover {
+    box-shadow: 0 0 0 4px var(--primary-color),
+    0 0 0 8px var(--button-color);
+}
+
+.about {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 60px 150px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--prime-text-color);
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.left-section, .right-section {
+    width: 50%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 110px;
+}
+
+.content h4 {
+    padding-bottom: 16px;
+    font-family: "Roboto", serif;
+    font-size: 17px;
+}
+
+.prime {
+    color: var(--primary-color);
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.lang-en {
+    margin-left: 22.3%;
+}
+
+.date {
+    font-size: 15px;
+}
+
+.social-social .main-title {
+    margin-top: 30px;
+}
+
+.social-social ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.social-social ul li {
+    list-style: none;
+    margin: 0 15px 0 0;
+}
+
+.social-social ul li .bx {
+    font-size: 30px;
+    line-height: 60px;
+    transition: 0,6s;
+    color: #fff;
+}
+
+.social-social ul li .bx:hover {
+    color: #fff;
+}
+
+.social-social ul li a {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    background-color: var(--button-color);
+    text-align: center;
+    transition: 0.6s;
+}
+
+.social-social ul li a:hover {
+    transform: translate(0, -10px);
+}
+
+.social-social ul li:nth-child(1) a:hover {
+    background-color: #0A66C2;
+}
+
+.social-social ul li:nth-child(2) a:hover {
+    background-color: #000000;
+}
+
+.divider {
+    width: 2px;
+    background-color: var(--primary-color);
+    min-height: 100%;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.skill{
+    display: flex;
+    padding-top: 50px;
+    width: 70%;
+}
+
+.main-title{
+    font-family: "Roboto", serif;
+    font-size: 23px;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    display: flex;
+    padding-bottom: 50px;
+    color: var(--primary-color);
+}
+
+.technecal {
+    flex: 2;
+}
+
+.bar {
+    font-size: 23px;
+}
+
+.technical-bars .bar {
+    margin: 20px 0;
+}
+
+.technical-bars .bar:first-child {
+    margin-top: 0;
+}
+
+.technical-bars .bar:last-child {
+    margin: 0;
+}
+
+.technical-bars .bar .info {
+    margin-bottom: 5px;
+}
+
+.technical-bars .bar .info span {
+    font-family: "Roboto", serif;
+    font-size: 17px;
+    font-weight: 500;
+    animation: showText 0,5 1s linear forwards;
+}
+
+.technical-bars .bar .progress-line {
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-color);
+    animation: animates 1s 2s cubic-bezier(1,0,0.5,1) forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+@keyframes animates{
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.technical-bars .bar .progress-line span {
+    height: 100%;
+    background-color: var(--prime-text-color);
+    position: absolute;
+    border-radius: 10px;
+    animation: animates 1s 3s cubic-bezier(1,0,0.5,1) forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.progress-line.html span {
+    width: 90%;
+}
+
+.progress-line.css3 span {
+    width: 50%;
+}
+
+.progress-line.javascript span {
+    width: 20%;
+}
+
+.progress-line.nodejs span {
+    width: 5%;
+}
+
+.progress-line span::after {
+    position: absolute;
+    padding: 1px 8px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-family: "Roboto", serif;
+    font-size: 12px;
+    border-radius: 3px;
+    top: -28px;
+    right: -20px;
+    animation: showText 0.5s 1.5s linear forwards;
+    opacity: 0;
+}
+
+.progress-line.html span::after {
+    content: "90%";
+}
+
+.progress-line.css3 span::after {
+    content: "50%";
+}
+
+.progress-line.javascript span::after {
+    content: "20%";
+}
+
+.progress-line.nodejs span::after {
+    content: "5%";
+}
+
+.progress-line span::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: var(--primary-color);
+    top: -10px;
+    right: 0;
+    animation: showText 0.5s 1.5s linear forwards;
+    opacity: 0;
+}
+
+@keyframes showText{
+    100%{
+        opacity: 1;
+    }
+}
+
+.radial-bars {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.radial-bars .radial-bar {
+    width: 30%;
+    position: relative;
+}
+
+.radial-bars .radial-bar svg {
+    margin-top: 20px;
+}
+
+.radial-bars .radial-bar .progress-bar {
+    stroke-width: 10;
+    stroke: var(--primary-color);
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+    animation: animate-bar 1s 2s linear forwards;
+}
+
+@keyframes animate-bar{
+    100%{
+        stroke-dashoffset: -1;
+    }
+}
+
+.path{
+    stroke-width: 10;
+    stroke: var(--prime-text-color);
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+}
+.path-1{animation: animate-path1 1s 3s linear forwards;}
+.path-2{animation: animate-path2 1s 3s linear forwards;}
+.path-3{animation: animate-path3 1s 3s linear forwards;}
+
+@keyframes animate-path1{
+    100%{
+        stroke-dashoffset: 60;
+    }
+}
+
+@keyframes animate-path2{
+    100%{
+        stroke-dashoffset: 140;
+    }
+}
+
+@keyframes animate-path3{
+    100%{
+        stroke-dashoffset: 180;
+    }
+}
+
+.radial-bar .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto", serif;
+    font-size: 17px;
+    font-weight: 500;
+    animation: showText 0.5 1s linear forwards;
+}
+
+.radial-bar .text-circle{
+    font-family: "Roboto", serif;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
+.credentials {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 150px;
+    background-color: var(--primary-color);
+    gap: 10px;
+}
+
+.main-title2 {
+    color: var(--text-color);
+    font-family: "Roboto", serif;
+    font-size: 23px;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.certificates{
+    min-height: 50%;
+}
+
+.courses{
+    min-height: 50%;
+}
+
+.card-wrapper {
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item {
+    list-style: none;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    display: block;
+    background-color: var(--text-color);
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color: var(--button-color);
+}
+
+.card-list .card-link .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 16;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-list .card-link .badge {
+    color: var(--primary-color);
+    padding: 8px 16px;
+    font-family: "Roboto", serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    background-color: var(--prime-text-color);
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .card-title1 {
+    font-family: "Roboto", serif;
+    font-size: 1.19rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+}
+
+.card-list .card-link .card-soon {
+    height: 35px;
+    width: 45px;
+    color: var(--primary-color);
+    border-radius: 30px;
+    margin: 30px 0 5px;
+    background: none;
+    border: 2px solid var(--primary-color);
+    font-family: "Roboto", serif;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-list .card-link:hover .card-button {
+    color: var(--text-color);
+    background: var(--primary-color);
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: var(--secondary-color);
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: var(--secondary-color);
+    margin-top: -35px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
+.projects {
+    min-height: 30vh;
+    z-index: 1;
+    padding: 20px 150px;
+    background-color: #fff;
+}
+
+.contact {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 60px 150px;
+    background-color: var(--primary-color);
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.social, .message {
+    width: 50%;
+}
+
+.message h2{
+    margin-bottom: 40px;
+    font-family: "Roboto", serif;
+    color: var(--prime-text-color);
+}
+
+
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-family: "Roboto", serif;
+    color: var(--text-color);
+    padding: 0 5px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-group input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    font-family: "Roboto", serif;
+    color: var(--text-color);
+    padding: 0 10px;
+    background-color: transparent;
+    border: 1.2px solid var(--text-color);
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: 0;
+    font-size: 13px;
+    background-color: var(--primary-color);
+}
+
+.input-group textarea {
+    width: 320px;
+    font-size: 16px;
+    font-family: "Roboto", serif;
+    color: var(--text-color);
+    padding: 0 10px;
+    background-color: transparent;
+    border: 1.2px solid var(--text-color);
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-group textarea:focus~label,
+.input-group textarea:valid~label {
+    top: 0;
+    font-size: 13px;
+    background-color: var(--primary-color);
+}
+
+.message button {
+    padding: 10px;
+    font-family: "Roboto", serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background-color 0.3;
+}
+
+.message button:hover {
+    box-shadow: 0 0 0 4px var(--primary-color),
+    0 0 0 8px var(--button-color);
+}
+
+.social {
+    display: flex;
+    margin-top: 100px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+}
+
+.contact-container i {
+    padding: 15px;
+    margin: 10px;
+    font-size: 25px;
+    border-radius: 20%;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container p {
+    font-family: "Roboto", serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 13px;
+    color: var(--text-color);
+}
+
+.contact .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+}
+
+.contact .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+.contact .wave.wave2{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+.contact .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+.contact .wave.wave4{
+    animation: animate2 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+footer {
+    height: 10vh;
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
