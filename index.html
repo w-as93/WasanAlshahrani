@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wasan Alshahrani</title>
     <!-- Linking SwiperJS CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -25,13 +25,20 @@
 
     <header id="header">
         <a href="#" class="logo">WASAN</a>
-        <nav>
-            <a href="#home" class="nav_link">Home</a>
-            <a href="#about" class="nav_link">About</a>
-            <a href="#credentials" class="nav_link">Credentials</a>
-            <a href="#projects" class="nav_link">Projects</a>
-            <a href="#contact" class="nav_link">Contact</a>
-        </nav>
+
+        <div class="content-section">
+            <nav>
+                <a href="#home" class="nav_link"><i class="bx bx-home"></i>Home</a>
+                <a href="#about" class="nav_link"><i class="bx bx-book-open"></i>About</a>
+                <a href="#credentials" class="nav_link"><i class='bx bxs-graduation'></i>Credentials</a>
+                <a href="#projects" class="nav_link"><i class='bx bx-code-block' ></i>Projects</a>
+                <a href="#contact" class="nav_link"><i class="bx bx-phone"></i>Contact</a>
+            </nav>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="bx bx-menu"></i>
+            </div>
+        </div>
     </header>
 
     <section id="home" class="main">
@@ -47,7 +54,7 @@
             <div class="download-btn">
                     <div class="download-content">
                         <i class='bx bx-cloud-download download-icon'></i>
-                        <a href="Certificates/السيرة الذاتية.pdf" download="CV.pdf" class="download-txt">Download CV</a>
+                        <a href="Documentary/Resume.pdf" download="CV.pdf" class="download-txt">Download CV</a>
                     </div>
             </div>
         </div>
@@ -66,14 +73,15 @@
                     <h4><span class="prime">Accreditation : </span> Member of the <span title="Saudi Council of Engineers"> SCE </span> since <span class="date">[6 - Jan - 2024]</span></h4>
                 </div>
                 
-                <!-- <div class="social-social">
+                <div class="social-social">
                     <h3 class="main-title">Social</h3>
 
                     <ul>
-                        <li><a href="#"><i class='bx bxl-linkedin' ></i></a></li>
-                        <li><a href="#"><i class='bx bxl-github' ></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/wasan-alshahrani-a16a32271" target="_blank"><i class='bx bxl-linkedin' ></i></a></li>
+                        <li><a href="https://github.com/w-as93" target="_blank"><i class='bx bxl-github' ></i></a></li>
+                        <li><a href="https://www.instagram.com/codebywasan/" target="_blank"><i class='bx bxl-instagram' ></i></a></li>
                     </ul>
-                </div> -->
+                </div>
 
             </div>
 
@@ -148,7 +156,7 @@
                                     <circle class="path path-3" cx="100" cy="100" r="80"></circle> 
                                 </svg>
                                 <div class="percentage">60%</div>
-                                <div class="text-circle">Exel</div>
+                                <div class="text-circle">Execl</div>
                             </div>
                         </div>
                     </div>
@@ -161,17 +169,17 @@
     <section id="credentials" class="credentials">
         <h2 class="title">Credentials</h2>
 
-       <!-- <div class="certificates">
+        <div class="certificates">
             <h3 class="main-title2">Certificates</h3>
 
             <div class="container-courses swiper">
                 <div class="card-wrapper">
                     <ul class="card-list swiper-wrapper">
                         <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="MOS/001-MOS-Word-060520.png" alt="Card Image" class="card-image">
+                            <a href="Certificates/MOSW.pdf" class="card-link" download="Mos.pdf">
+                                <img src="Img/001-MOS-Word-060520.png" alt="Card Image" class="card-image">
                                 <p class="badge">MOS</p>
-                                <h2 class="card-title1">Digital Forensics Using Autopsy</h2>
+                                <h2 class="card-title1">Microsoft Office Specialist: Word</h2>
                                 <button class='card-button bx bx-cloud-download' ></button>
                             </a>
                         </li>
@@ -183,7 +191,7 @@
                   
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="courses">
             <h3 class="main-title2">Courses</h3>
@@ -249,6 +257,15 @@
                             <h2 class="card-title1">To-Do-List</h2>
                             <h4 class="card-soon">Soon</h4>
                             <!-- <button class='card-button bx bx-right-arrow-alt' title="View Wedsite"></button> -->
+                        </a>
+                    </li>
+
+                    <li class="card-item swiper-slide">
+                        <a href="https://www.jabalshaa.com/" class="card-link" target="_blank">
+                            <img src="LogoForProjects/logo mount shaa.png" alt="Card Image" class="card-image">
+                            <p class="badge">Web Site</p>
+                            <h2 class="card-title1">Mount Sha'a Foundation</h2>
+                            <button class='card-button bx bx-right-arrow-alt' title="View Wedsite"></button>
                         </a>
                     </li>
 

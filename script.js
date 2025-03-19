@@ -1,3 +1,20 @@
+// لتفعيل زر المنيو
+function toggleMenu() {
+  let menu = document.querySelector(".content-section nav");
+  let toggleIcon = document.querySelector(".menu-toggle i");
+
+  menu.classList.toggle("active");
+
+  // تبديل الأيقونة مع تأثير دوران ناعم
+  if (menu.classList.contains("active")) {
+      toggleIcon.classList.remove("bx-menu");
+      toggleIcon.classList.add("bx-x");
+  } else {
+      toggleIcon.classList.remove("bx-x");
+      toggleIcon.classList.add("bx-menu");
+  }
+}
+
 new Swiper('.card-wrapper', {
     loop: true,
     spaceBetween: 30,
